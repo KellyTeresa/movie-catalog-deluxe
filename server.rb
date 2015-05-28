@@ -27,7 +27,6 @@ get '/actors' do
 end
 
 get '/actors/:id' do
-  # binding.pry
   actor_info = db_connection do |conn|
     conn.exec("SELECT
     actors.name AS actor,
@@ -54,7 +53,8 @@ get '/movies' do
     studios.name AS studio
     FROM movies
     JOIN genres ON genres.id = movies.genre_id
-    LEFT OUTER JOIN studios ON studios.id = movies.studio_id;")
+    LEFT OUTER JOIN studios ON studios.id = movies.studio_id
+    ORDER BY movies.title;")
   end
   erb :'movies/index', locals: {movies_list: movies_list.to_a}
 end
