@@ -2,17 +2,14 @@
 <html>
   <head>
     <title>Actor Details</title>
-
   </head>
 
   <body>
     <h1><%= actor_info[0]["actor"] %></h1>
     <ul>
     <% actor_info.each do |hash| %>
-
       <li><a href="/movies/<%= hash["movie_id"] %>"><%= hash["movies"] %></a> as <%= hash["character"] %></li>
     <% end %>
-
     </ul>
     <h4><a href="/actors">Return to Actor List</a></h4>
   </body>

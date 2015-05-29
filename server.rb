@@ -12,18 +12,14 @@ def db_connection
 end
 
 get '/' do
-  '''<ul>
-  <li><a href="/actors">Actors</a></li>
-  <li><a href="/movies">Movies</a></li>
-  </ul>
-  '''
+  erb :'index'
 end
 
 get '/actors' do
   actors_list = db_connection do |conn|
     conn.exec("SELECT id, name FROM actors ORDER BY name;")
   end
-  erb :'actors/index', locals: {actors_list: actors_list.to_a}
+  erb :'actors/index', locals: { actors_list: actors_list.to_a }
 end
 
 get '/actors/:id' do
@@ -56,7 +52,7 @@ get '/movies' do
     LEFT OUTER JOIN studios ON studios.id = movies.studio_id
     ORDER BY movies.title;")
   end
-  erb :'movies/index', locals: {movies_list: movies_list.to_a}
+  erb :'movies/index', locals: { movies_list: movies_list.to_a }
 end
 
 get '/movies/:id' do
@@ -87,7 +83,6 @@ get '/movies/:id' do
     ")
   end
 
-
-
-  erb :'movies/show', locals: {movies_info: movies_info, movie_actors: movie_actors}
+  erb :'movies/show',
+  locals: {movies_info: movies_info, movie_actors: movie_actors}
 end
