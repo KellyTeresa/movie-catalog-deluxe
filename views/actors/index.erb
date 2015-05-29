@@ -5,6 +5,7 @@
   </head>
 
   <body>
+    <h1>Choose an actor!</h1>
     <ul>
     <% actors_list.each do |hash| %>
       <li><a href="/actors/<%= hash["id"] %>"><%= hash["name"] %></a></li>

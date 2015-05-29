@@ -5,26 +5,27 @@
   </head>
 
   <body>
-  <table>
-    <tr>
-      <td>Title</td>
-      <td>Year</td>
-      <td>Rating</td>
-      <td>Genre</td>
-      <td>Studio</td>
-    </tr>
+    <h1>Choose a movie!</h1>
+    <table>
+      <tr>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Rating</td>
+        <td>Genre</td>
+        <td>Studio</td>
+      </tr>
 
-    <% movies_list.each do |hash| %>
-    <tr>
-      <td><a href="/movies/<%= hash["id"] %>"><%= hash["title"]%></a></td>
-      <td><%= hash["year"] %></td>
-      <td><%= hash["rating"]%></td>
-      <td><%= hash["genre"]%></td>
-      <td><%= hash["studio"]%></td>
-    </tr>
-    <% end %>
+      <% movies_list.each do |hash| %>
+      <tr>
+        <td><a href="/movies/<%= hash["id"] %>"><%= hash["title"]%></a></td>
+        <td><%= hash["year"] %></td>
+        <td><%= hash["rating"]%></td>
+        <td><%= hash["genre"]%></td>
+        <td><%= hash["studio"]%></td>
+      </tr>
+      <% end %>
 
 
-  </table>
+    </table>
   </body>
 </html>
