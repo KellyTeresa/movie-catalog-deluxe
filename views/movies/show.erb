@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MOVIE NAME</title>
+
+  </head>
+
+  <body>
+  <table>
+    <tr>
+      <td>Title</td>
+      <td>Year</td>
+      <td>Rating</td>
+      <td>Genre</td>
+      <td>Studio</td>
+    </tr>
+
+    <% movies_info.each do |hash| %>
+    <tr>
+      <td><%= hash["title"]%></td>
+      <td><%= hash["year"] %></td>
+      <td><%= hash["rating"]%></td>
+      <td><%= hash["genre"]%></td>
+      <td><%= hash["studio"]%></td>
+    </tr>
+    <% end %>
+<p></p>
+<p></p>
+<p></p>
+    <table>
+      <tr>
+        <td>Actors</td>
+        <td>Characters</td>
+      </tr>
+      <% movie_actors.each do |hash| %>
+      <tr>
+        <td><a href="/actors/<%= hash["id"] %>"><%= hash["actor"] %></a></td>
+        <td><%= hash["character"] %></td>
+      </tr>
+      <% end %>
+
+    </table>
+
+  </table>
+  </body>
+</html>
