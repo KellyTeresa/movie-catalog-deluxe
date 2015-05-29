@@ -12,7 +12,7 @@ def db_connection
 end
 
 get '/' do
-  redirect '/index.html'
+  erb :'index'
 end
 
 get '/actors' do
